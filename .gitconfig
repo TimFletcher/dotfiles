@@ -1,0 +1,16 @@
+[core]
+    editor = vim
+[user]
+    name = Tim Fletcher
+    email = tim@timothyfletcher.com
+[color]
+    ui = auto
+[alias]
+    st = status
+    ci = commit
+    co = checkout
+    di = diff
+    dc = diff --cached
+    b = branch
+[merge]
+    tool = vimdiff
