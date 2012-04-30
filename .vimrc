@@ -19,6 +19,7 @@ Bundle 'klen/vim-taglist-plus.git'
 Bundle 'mileszs/ack.vim.git'
 Bundle 'scrooloose/syntastic.git'
 Bundle 'tomtom/tlib_vim.git'
+Bundle 'tpope/vim-fugitive.git'
 Bundle 'tpope/vim-haml.git'
 Bundle 'tpope/vim-markdown.git'
 Bundle 'tpope/vim-ragtag.git'
@@ -107,7 +108,7 @@ set hlsearch                      " Highlight previous search pattern
 
 "set nowrap                        " Do not wrap on window width
 "set linebreak                     " Don't break words to wrap
-set textwidth=79                  " Maximum width of text
+"set textwidth=79                  " Maximum width of text
 "set formatoptions=qrn1
 set colorcolumn=80                " Set coloured column at 80 characters
 "command! -nargs=* Wrap set wrap linebreak nolist " Quickly turn on line wrapping

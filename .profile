@@ -45,12 +45,18 @@ alias fixbrew='sudo chown -R $USER /usr/local'
 # Clean out DNS cache
 alias flush='dscacheutil -flushcache'
 
+# Get some lorem
+alias lorem='curl http://lorem-ipsum.me/api/text'
+
 # Misc aliases
 alias b='bundle exec'
 alias o='open .'
 
 # Rails aliases
 alias spork='.bin/spork'
+
+# Django
+alias run='django-admin.py runserver 3000'
 
 # Git aliases
 alias ga='git add'
@@ -79,10 +85,12 @@ mono() {
   fi
 }
 
-# --------------------------
-# --- Freelance Projects ---
-# --------------------------
-
-coco() {
-  cd $HOME/Documents/Archived\ Freelance\ Sites/co-co-la.de/co-co-la.de
+malltip() {
+  cd $HOME/Lift/malltip
+  if [ "${1}" == "s" ]; then
+    b rails server
+  fi
+  if [ "${1}" == "e" ]; then
+    vim
+  fi
 }
