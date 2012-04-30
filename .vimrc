@@ -12,6 +12,7 @@ Bundle 'altercation/vim-colors-solarized.git'
 Bundle 'garbas/vim-snipmate.git'
 Bundle 'groenewege/vim-less.git'
 Bundle 'honza/snipmate-snippets.git'
+Bundle 'jmcantrell/vim-virtualenv.git'
 Bundle 'kchmck/vim-coffee-script.git'
 Bundle 'kien/ctrlp.vim.git'
 Bundle 'klen/vim-taglist-plus.git'
@@ -43,7 +44,7 @@ set tabstop=4                     " Global tab width - Affects tabs already in a
 syntax enable                     " Turn on syntax highlighting.
 colorscheme solarized
 set autoindent                    " Next line has same indentation as previous line
-set background=light
+set background=dark
 set backspace=indent,eol,start    " Intuitive backspacing.
 set clipboard=unnamed             " Allow yank etc to work with the OS X clipboard
 set cursorline                    " Highlights current line
@@ -76,7 +77,18 @@ let mapleader = ","
 " --- Key Mappings ---
 " --------------------
 
-:imap jk <Esc>
+" Exit insert mode with jk
+:imap jk <esc>
+
+" --------------------------
+" --- Rails Key Mappings ---
+" --------------------------
+
+" Run current test file using Spork
+:map <leader>t :!.bin/testdrb -Itest %<cr>
+
+" Annotate models
+:map <leader>a :!.bin/annotate<cr>
 
 " -----------------
 " --- Searching ---
@@ -93,7 +105,7 @@ set hlsearch                      " Highlight previous search pattern
 " --- Soft/Hard Wrapping ---
 " --------------------------
 
-set nowrap                        " Do not wrap on window width
+"set nowrap                        " Do not wrap on window width
 "set linebreak                     " Don't break words to wrap
 set textwidth=79                  " Maximum width of text
 "set formatoptions=qrn1
@@ -109,11 +121,19 @@ set list
 set listchars=tab:›\ ,eol:¬ " mark trailing white space
 
 " -------------------
-" --- Status Line ---
+" --- status line ---
 " -------------------
 
 set laststatus=2                               " Always show the status line
 set statusline=\ %f%m%r%h\ %w\ Line:\ %l/%L:%c " Customise the status line
+
+" ----------------------
+" --- vim-virtualenv ---
+" ----------------------
+
+" If the appropriate environment variables are set this will automatically use
+" the virtualenv's python within vim thus enabling omnicomplete.
+let g:virtualenv_auto_activate = 1
 
 " ------------------------------
 " --- ctrlp.vim configuration --
@@ -127,6 +147,7 @@ nnoremap <c-b> :CtrlPBuffer<CR>
 " --- Omnicomplete ---
 " --------------------
 
+inoremap <C-space> <C-x><C-o>
 autocmd FileType ruby set omnifunc=rubycomplete#Complete
 autocmd FileType ruby let g:rubycomplete_buffer_loading=1
 autocmd FileType ruby let g:rubycomplete_classes_in_global=1
@@ -166,3 +187,4 @@ if has("gui_running")
   set guioptions-=m
   set guioptions-=T
 endif
+

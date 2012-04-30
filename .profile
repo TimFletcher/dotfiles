@@ -49,6 +49,9 @@ alias flush='dscacheutil -flushcache'
 alias b='bundle exec'
 alias o='open .'
 
+# Rails aliases
+alias spork='.bin/spork'
+
 # Git aliases
 alias ga='git add'
 alias gp='git push'
@@ -74,4 +77,12 @@ mono() {
   if [ "${1}" == "e" ]; then
     vim
   fi
+}
+
+# --------------------------
+# --- Freelance Projects ---
+# --------------------------
+
+coco() {
+  cd $HOME/Documents/Archived\ Freelance\ Sites/co-co-la.de/co-co-la.de
 }
