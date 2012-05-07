@@ -58,6 +58,10 @@ alias spork='.bin/spork'
 # Django
 alias run='django-admin.py runserver 3000'
 
+# Generate rdoc
+alias gen_rdoc='rdoc -f horo --main README.rdoc *.rdoc lib ext'
+
+
 # Git aliases
 alias ga='git add'
 alias gp='git push'
