@@ -64,7 +64,6 @@ set wildignore+=*.jpg,*.jpeg,*.png,*.gif,*.ico               " Images
 set wildignore+=*.eot,*.svg,*.ttf,*.woff                     " Fonts
 set wildignore+=*.DS_Store                                   " OS X
 set wildignore+=.git,.gitkeep                                " Version control
-set wildignore+=*/vendor/bundle/*,*/bin/*,*/.bin/*           " Rails
 set wildignore+=tags,*.log                                   " Misc
 set wildmenu                      " Enhanced command line completion
 set wildmode=list:longest         " Complete files like a shell
@@ -146,6 +145,7 @@ let g:virtualenv_auto_activate = 1
 
 let g:ctrlp_working_path_mode = 0
 let g:ctrlp_max_height = 20
+let g:ctrlp_custom_ignore = '\.bin$\|vendor\/bundle$'
 nnoremap <c-b> :CtrlPBuffer<CR>
 
 " --------------------
