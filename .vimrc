@@ -7,25 +7,25 @@ call vundle#rc()
 " let Vundle manage Vundle
 Bundle 'gmarik/vundle'
 
-Bundle 'MarcWeber/vim-addon-mw-utils.git'
+"Bundle 'MarcWeber/vim-addon-mw-utils.git'
 Bundle 'altercation/vim-colors-solarized.git'
-Bundle 'garbas/vim-snipmate.git'
-Bundle 'groenewege/vim-less.git'
-Bundle 'honza/snipmate-snippets.git'
+"Bundle 'garbas/vim-snipmate.git'
+"Bundle 'groenewege/vim-less.git'
+"Bundle 'honza/snipmate-snippets.git'
 Bundle 'kchmck/vim-coffee-script.git'
 Bundle 'kien/ctrlp.vim.git'
 Bundle 'klen/vim-taglist-plus.git'
 Bundle 'mileszs/ack.vim.git'
-Bundle 'scrooloose/syntastic.git'
-Bundle 'spahl/vim-virtualenv.git'
-Bundle 'tomtom/tlib_vim.git'
-Bundle 'tpope/vim-fugitive.git'
+"Bundle 'scrooloose/syntastic.git'
+"Bundle 'spahl/vim-virtualenv.git'
+"Bundle 'tomtom/tlib_vim.git'
+"Bundle 'tpope/vim-fugitive.git'
 Bundle 'tpope/vim-haml.git'
 Bundle 'tpope/vim-markdown.git'
-Bundle 'tpope/vim-ragtag.git'
-Bundle 'tpope/vim-rails.git'
-Bundle 'tpope/vim-repeat.git'
-Bundle 'tpope/vim-surround.git'
+"Bundle 'tpope/vim-ragtag.git'
+"Bundle 'tpope/vim-rails.git'
+"Bundle 'tpope/vim-repeat.git'
+"Bundle 'tpope/vim-surround.git'
 
 filetype plugin indent on         " required
 
@@ -62,7 +62,7 @@ set wildignore+=*.jpg,*.jpeg,*.png,*.gif,*.ico               " Images
 set wildignore+=*.eot,*.svg,*.ttf,*.woff                     " Fonts
 set wildignore+=*.DS_Store                                   " OS X
 set wildignore+=.git,.gitkeep                                " Version control
-set wildignore+=tags,*.log                                   " Misc
+set wildignore+=tags,tmp/*,*.log                                   " Misc
 set wildmenu                      " Enhanced command line completion
 set wildmode=list:longest         " Complete files like a shell
 set shell=bash\ -l                " Source ~/.profile for :sh
@@ -77,8 +77,21 @@ let mapleader = ","
 " --- Key Mappings ---
 " --------------------
 
-" Exit insert mode with jk
-:imap jk <esc>
+" Also save with captial Width
+command! W :w
+
+" Exit insert mode with Tab
+imap <Tab> <esc>
+
+" Turn off search highlighting when using substitute
+autocmd cursorhold * set nohlsearch
+noremap n :set hlsearch<cr>n
+noremap N :set hlsearch<cr>N
+noremap / :set hlsearch<cr>/
+noremap ? :set hlsearch<cr>?
+
+" Split a line on spaces into multiple lines
+noremap <leader>s :s/ /\r <cr> :noh <cr>
 
 " --------------------------
 " --- Rails Key Mappings ---
@@ -100,6 +113,8 @@ set gdefault                      " Always substitute globally on a line (To onl
 set incsearch                     " Highlight search patterns while typing
 set showmatch                     " Jump to show matching brackets
 set hlsearch                      " Highlight previous search pattern
+nnoremap / /\v
+vnoremap / /\v
 
 " --------------------------
 " --- Soft/Hard Wrapping ---
