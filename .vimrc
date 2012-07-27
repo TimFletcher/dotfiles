@@ -52,7 +52,9 @@ set cursorline                    " Highlights current line
 set directory=/tmp/               " Set temporary directory (don't litter local dir with swp/tmp files)
 set encoding=utf-8                " Use UTF-8 everywhere
 set nojoinspaces                  " Remove double spaces when joining lines
-set relativenumber                " Show relative line numbers
+if exists("&relativenumber")
+  set relativenumber                " Show relative line numbers
+endif
 set ruler                         " Show cursor position
 set scrolloff=5                   " Show 3 lines of context around the cursor
 set showmode                      " Display the mode you're in
@@ -124,7 +126,9 @@ vnoremap / /\v
 "set linebreak                     " Don't break words to wrap
 "set textwidth=79                  " Maximum width of text
 "set formatoptions=qrn1
-set colorcolumn=80                " Set coloured column at 80 characters
+if exists("&colorcolumn")
+  set colorcolumn=80                " Set coloured column at 80 characters
+endif
 "command! -nargs=* Wrap set wrap linebreak nolist " Quickly turn on line wrapping
 "set showbreak=>>>
 

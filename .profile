@@ -79,8 +79,8 @@ alias gcl='git clone'
 # --- Rails Projects ---
 # ----------------------
 
-mono() {
-  cd $HOME/Sites/monogram
+cgc() {
+  cd $HOME/Lift/canadagolfcard
   if [ "${1}" == "s" ]; then
     b rails server
   fi
@@ -91,6 +91,16 @@ mono() {
 
 malltip() {
   cd $HOME/Lift/malltip
+  if [ "${1}" == "s" ]; then
+    b rails server
+  fi
+  if [ "${1}" == "e" ]; then
+    vim
+  fi
+}
+
+lsc() {
+  cd $HOME/Lift/stewardship_directory
   if [ "${1}" == "s" ]; then
     b rails server
   fi
